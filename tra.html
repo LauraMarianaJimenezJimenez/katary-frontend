@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Katary Renta Temporal | TRA Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset & Variables */
+        :root {
+            --bg-light: #F8F7F4;
+            --bg-secondary: #EEE8DF;
+            --primary: #7A7A7A;
+            --accent: #C47A5A;
+            --text-dark: #3A3A3A;
+            --text-light: #6B7280;
+            --white: #FFFFFF;
+            --border: #D1D5DB;
+            --error: #DC2626;
+            --success: #059669;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            font-size: 16px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            border-bottom: 2px solid var(--bg-secondary);
+            padding-bottom: 8px;
+            margin-top: 24px;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 40px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--accent);
+            color: var(--white);
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* Header */
+        header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        /* Forms */
+        .form-container {
+            background: var(--white);
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-top: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .form-container {
+                padding: 40px;
+            }
+        }
+
+        .form-title-block {
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--text-dark);
+        }
+
+        .input,
+        .select,
+        .textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #D1D5DB;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 16px;
+            background: var(--white);
+        }
+
+        .input:focus,
+        .select:focus {
+            outline: 2px solid var(--accent);
+            border-color: transparent;
+        }
+
+        .grid-2 {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .grid-3 {
+            display: grid;
+            gap: 15px;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 768px) {
+            .grid-3 {
+                grid-template-columns: 1fr 1fr 2fr;
+            }
+        }
+
+        .companion-row {
+            background: var(--bg-light);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border);
+        }
+
+        .lang-select-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+        #lang-select {
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background-color: var(--white);
+            color: var(--text-dark);
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        .lang-section {
+            display: none;
+        }
+
+        .lang-section.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        #access-denied {
+            display: none;
+            height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #content-wrapper {
+            display: none;
+        }
+
+        /* Radio styles */
+        .radio-group label {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .radio-group input[type="radio"] {
+            margin-right: 8px;
+            accent-color: var(--accent);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="access-denied">
+        <h2>Acceso Denegado / Access Denied</h2>
+        <p>Please verify the link provided.</p>
+    </div>
+
+    <div id="content-wrapper">
+        <header>
+            Katary Renta Temporal
+        </header>
+
+        <section class="section">
+            <div class="container">
+                <div class="form-container">
+
+                    <div class="lang-select-wrapper">
+                        <select id="lang-select" onchange="switchLanguage(this.value)">
+                            <option value="es">Español (ES)</option>
+                            <option value="en">English (EN)</option>
+                            <option value="pt">Português (PT)</option>
+                            <option value="fr">Français (FR)</option>
+                        </select>
+                    </div>
+
+                    <!-- ESPAÑOL -->
+                    <div id="lang-es" class="lang-section active">
+                        <div class="form-title-block text-center">
+                            <h2>Tarjeta de Registro de Alojamiento (TRA)</h2>
+                            <p>Registro de huéspedes para Katary Renta Temporal.</p>
+                        </div>
+
+                        <form id="form-es" onsubmit="handleSpanishSubmit(event)">
+                            <h3>Datos del huésped principal</h3>
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Apartamento / Unidad *</label>
+                                    <select name="apartment" class="select" required>
+                                        <option value="" disabled selected>Seleccione una opción</option>
+                                        <option value="apto1">Apartamento 1 - Bogotá</option>
+                                        <option value="apto2">Apartamento 2 - Bogotá</option>
+                                        <option value="apto3">Apartamento 3 - Bogotá</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Código de reserva (Airbnb) *</label>
+                                    <input type="text" name="bookingCode" class="input" placeholder="Ej. HM12345678"
+                                        required>
+                                </div>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Tipo de identificación *</label>
+                                    <select name="idType" class="select" required>
+                                        <option value="CC">Cédula de Ciudadanía</option>
+                                        <option value="CE">Cédula de Extranjería</option>
+                                        <option value="PAS">Pasaporte</option>
+                                        <option value="OTHER">Otro</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Número de identificación *</label>
+                                    <input type="text" name="idNumber" class="input" required>
+                                </div>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Nombres *</label>
+                                    <input type="text" name="firstName" class="input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Apellidos *</label>
+                                    <input type="text" name="lastName" class="input" required>
+                                </div>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Ciudad de residencia *</label>
+                                    <input type="text" name="cityResidence" class="input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Ciudad de procedencia *</label>
+                                    <input type="text" name="cityOrigin" class="input" required>
+                                </div>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Teléfono *</label>
+                                    <input type="text" name="phone" class="input" placeholder="+57 300 000 0000"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Correo electrónico *</label>
+                                    <input type="email" name="email" class="input" required>
+                                </div>
+                            </div>
+
+                            <h3>Datos de la estadía</h3>
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">N° habitación/cama/plaza (Opcional)</label>
+                                    <input type="text" name="roomNumber" class="input">
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Principal motivo de viaje</label>
+                                    <select name="tripPurpose" class="select">
+                                        <option value="vacaciones">Vacaciones / Ocio</option>
+                                        <option value="negocios">Negocios / Trabajo</option>
+                                        <option value="familia">Visita familiar</option>
+                                        <option value="salud">Salud</option>
+                                        <option value="otro">Otro</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Número de acompañantes</label>
+                                    <input type="number" id="num_companions" name="numCompanions" class="input" min="0"
+                                        value="0" oninput="renderCompanions()">
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Tipo de acomodación</label>
+                                    <input type="text" name="accommodationType" class="input"
+                                        placeholder="Ej. Apartamento completo">
+                                </div>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Check-in *</label>
+                                    <input type="date" name="checkIn" class="input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Check-out *</label>
+                                    <input type="date" name="checkOut" class="input" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="label">Valor total pagado (alojamiento) *</label>
+                                <input type="number" name="amountPaid" class="input" step="0.01" required>
+                            </div>
+
+                            <!-- Dynamic Companions Section -->
+                            <div id="companions-section" style="display:none;">
+                                <h3>Datos de acompañantes</h3>
+                                <div id="companions-container"></div>
+                            </div>
+
+                            <h3>Autorización de tratamiento de datos personales</h3>
+                            <div class="form-group">
+                                <p style="font-size: 0.9em; color: #555;">
+                                    Declaro que he sido informado(a) sobre la Política de Tratamiento de Datos de Katary
+                                    y AUTORIZO de manera previa, expresa e informada el tratamiento de mis datos
+                                    personales, conforme a la Ley 1581 de 2012 y el Decreto 1377 de 2013. En caso de
+                                    registrar datos de menores, declaro contar con la autorización del padre/madre o
+                                    representante legal y que se respeta su interés superior.
+                                </p>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="authorization" value="yes" required> Sí,
+                                        autorizo</label>
+                                    <label><input type="radio" name="authorization" value="no" required> No
+                                        autorizo</label>
+                                </div>
+                            </div>
+
+                            <h3>Firma</h3>
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Firma del huésped (Nombre completo) *</label>
+                                    <input type="text" name="guestSignature" class="input"
+                                        placeholder="Firma digital (Escriba su nombre)" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Fecha *</label>
+                                    <input type="date" name="signatureDate" class="input" required>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn">Enviar Registro</button>
+                        </form>
+                    </div>
+
+                    <!-- ENGLISH -->
+                    <div id="lang-en" class="lang-section">
+                        <div class="form-title-block text-center">
+                            <h2>Accommodation Registration Card (TRA)</h2>
+                            <p>Guest registration for Katary Short-Term Rentals.</p>
+                        </div>
+
+                        <form id="form-en" onsubmit="handleEnglishSubmit(event)">
+                            <h3>Main Guest Information</h3>
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Apartment / Unit *</label>
+                                    <select name="apartment" class="select" required>
+                                        <option value="" disabled selected>Select an option</option>
+                                        <option value="apto1">Apartment 1 - Bogotá</option>
+                                        <option value="apto2">Apartment 2 - Bogotá</option>
+                                        <option value="apto3">Apartment 3 - Bogotá</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Booking code (Airbnb) *</label>
+                                    <input type="text" name="bookingCode" class="input" placeholder="e.g. HM12345678"
+                                        required>
+                                </div>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">ID Type *</label>
+                                    <select name="idType" class="select" required>
+                                        <option value="PAS">Passport</option>
+                                        <option value="CC">National ID (CC)</option>
+                                        <option value="CE">Foreign ID (CE)</option>
+                                        <option value="OTHER">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">ID Number *</label>
+                                    <input type="text" name="idNumber" class="input" required>
+                                </div>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">First Name(s) *</label>
+                                    <input type="text" name="firstName" class="input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Last Name(s) *</label>
+                                    <input type="text" name="lastName" class="input" required>
+                                </div>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">City of Residence *</label>
+                                    <input type="text" name="cityResidence" class="input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">City of Origin *</label>
+                                    <input type="text" name="cityOrigin" class="input" required>
+                                </div>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Phone *</label>
+                                    <input type="tel" name="phone" class="input" placeholder="+1 123 456 7890" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Email *</label>
+                                    <input type="email" name="email" class="input" required>
+                                </div>
+                            </div>
+
+                            <h3>Stay Information</h3>
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Room/Bed/Space No. (Optional)</label>
+                                    <input type="text" name="roomNumber" class="input">
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Main Purpose of Trip</label>
+                                    <select name="tripPurpose" class="select">
+                                        <option value="vacaciones">Vacation / Leisure</option>
+                                        <option value="negocios">Business / Work</option>
+                                        <option value="familia">Family Visit</option>
+                                        <option value="salud">Health</option>
+                                        <option value="otro">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Number of Additional Guests</label>
+                                    <input type="number" id="num_companions_en" name="numCompanions" class="input"
+                                        min="0" value="0" oninput="renderCompanionsEn()">
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Accommodation Type</label>
+                                    <input type="text" name="accommodationType" class="input"
+                                        placeholder="e.g. Full Apartment">
+                                </div>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Check-in *</label>
+                                    <input type="date" name="checkIn" class="input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Check-out *</label>
+                                    <input type="date" name="checkOut" class="input" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="label">Total Amount Paid (Lodging) *</label>
+                                <input type="number" name="amountPaid" class="input" step="0.01" required>
+                            </div>
+
+                            <!-- Dynamic Companions Section -->
+                            <div id="companions-section_en" style="display:none;">
+                                <h3>Additional Guests</h3>
+                                <div id="companions-container_en"></div>
+                            </div>
+
+                            <h3>Personal Data Processing Authorization</h3>
+                            <div class="form-group">
+                                <p style="font-size: 0.9em; color: #555;">
+                                    I confirm that I have been informed about Katary’s Personal Data Processing Policy
+                                    and I AUTHORIZE the prior, explicit and informed processing of my personal data in
+                                    accordance with Colombian Law 1581 of 2012 and Decree 1377 of 2013. If minors’ data
+                                    is recorded, I confirm I have authorization from the parent/legal guardian and the
+                                    child’s best interest is respected.
+                                </p>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="authorization" value="yes" required> Yes, I
+                                        authorize</label>
+                                    <label><input type="radio" name="authorization" value="no" required> No, I do not
+                                        authorize</label>
+                                </div>
+                            </div>
+
+                            <h3>Signature</h3>
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Guest Signature (Full Name) *</label>
+                                    <input type="text" name="guestSignature" class="input"
+                                        placeholder="Digital Signature (Type Full Name)" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Date *</label>
+                                    <input type="date" name="signatureDate" class="input" required>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn">Submit Registration</button>
+                        </form>
+                    </div>
+
+                    <!-- PORTUGUÊS -->
+                    <div id="lang-pt" class="lang-section">
+                        <div class="form-title-block text-center">
+                            <h2>Ficha de Registro de Hospedagem (TRA)</h2>
+                            <p>Registro de hóspedes para Katary Renta Temporal.</p>
+                        </div>
+
+                        <form id="form-pt" onsubmit="handlePortugueseSubmit(event)">
+                            <h3>Dados do hóspede principal</h3>
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Apartamento / Unidade *</label>
+                                    <select name="apartment" class="select" required>
+                                        <option value="" disabled selected>Selecione uma opção</option>
+                                        <option value="apto1">Apartamento 1 - Bogotá</option>
+                                        <option value="apto2">Apartamento 2 - Bogotá</option>
+                                        <option value="apto3">Apartamento 3 - Bogotá</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Código da reserva (Airbnb) *</label>
+                                    <input type="text" name="bookingCode" class="input" placeholder="Ex. HM12345678"
+                                        required>
+                                </div>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Tipo de documento *</label>
+                                    <select name="idType" class="select" required>
+                                        <option value="PAS">Passaporte</option>
+                                        <option value="CC">Cédula de Cidadania (CC)</option>
+                                        <option value="CE">Cédula de Estrangeiro (CE)</option>
+                                        <option value="OTHER">Outro</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Número do documento *</label>
+                                    <input type="text" name="idNumber" class="input" required>
+                                </div>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Nome(s) *</label>
+                                    <input type="text" name="firstName" class="input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Sobrenome(s) *</label>
+                                    <input type="text" name="lastName" class="input" required>
+                                </div>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Cidade de residência *</label>
+                                    <input type="text" name="cityResidence" class="input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Cidade de procedência *</label>
+                                    <input type="text" name="cityOrigin" class="input" required>
+                                </div>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Telefone *</label>
+                                    <input type="tel" name="phone" class="input" placeholder="+1 123 456 7890" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">E-mail *</label>
+                                    <input type="email" name="email" class="input" required>
+                                </div>
+                            </div>
+
+                            <h3>Dados da estadia</h3>
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Nº quarto/cama/vaga (Opcional)</label>
+                                    <input type="text" name="roomNumber" class="input">
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Motivo principal da viagem</label>
+                                    <select name="tripPurpose" class="select">
+                                        <option value="vacaciones">Férias / Lazer</option>
+                                        <option value="negocios">Negócios / Trabalho</option>
+                                        <option value="familia">Visita familiar</option>
+                                        <option value="salud">Saúde</option>
+                                        <option value="otro">Outro</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Número de acompanhantes</label>
+                                    <input type="number" id="num_companions_pt" name="numCompanions" class="input"
+                                        min="0" value="0" oninput="renderCompanionsPt()">
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Tipo de acomodação</label>
+                                    <input type="text" name="accommodationType" class="input"
+                                        placeholder="Ex. Apartamento completo">
+                                </div>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Check-in *</label>
+                                    <input type="date" name="checkIn" class="input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Check-out *</label>
+                                    <input type="date" name="checkOut" class="input" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="label">Valor total pago (hospedagem) *</label>
+                                <input type="number" name="amountPaid" class="input" step="0.01" required>
+                            </div>
+
+                            <!-- Dynamic Companions Section -->
+                            <div id="companions-section_pt" style="display:none;">
+                                <h3>Acompanhantes</h3>
+                                <div id="companions-container_pt"></div>
+                            </div>
+
+                            <h3>Autorização para tratamento de dados pessoais</h3>
+                            <div class="form-group">
+                                <p style="font-size: 0.9em; color: #555;">
+                                    Declaro que fui informado(a) sobre a Política de Tratamento de Dados da Katary e
+                                    AUTORIZO, de forma prévia, expressa e informada, o tratamento dos meus dados
+                                    pessoais conforme a Lei 1581 de 2012 e o Decreto 1377 de 2013 da Colômbia. Caso
+                                    sejam registrados dados de menores, declaro ter autorização do pai/mãe ou
+                                    representante legal e que o interesse superior da criança é respeitado.
+                                </p>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="authorization" value="yes" required> Sim,
+                                        autorizo</label>
+                                    <label><input type="radio" name="authorization" value="no" required> Não
+                                        autorizo</label>
+                                </div>
+                            </div>
+
+                            <h3>Assinatura</h3>
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Assinatura do hóspede (Nome completo) *</label>
+                                    <input type="text" name="guestSignature" class="input"
+                                        placeholder="Assinatura digital (Digite nome completo)" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Data *</label>
+                                    <input type="date" name="signatureDate" class="input" required>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn">Enviar Registro</button>
+                        </form>
+                    </div>
+
+                    <!-- FRANÇAIS -->
+                    <div id="lang-fr" class="lang-section">
+                        <div class="form-title-block text-center">
+                            <h2>Fiche d'enregistrement d'hébergement (TRA)</h2>
+                            <p>Enregistrement des voyageurs pour Katary Location Courte Durée.</p>
+                        </div>
+
+                        <form id="form-fr" onsubmit="handleFrenchSubmit(event)">
+                            <h3>Informations du voyageur principal</h3>
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Appartement / Unité *</label>
+                                    <select name="apartment" class="select" required>
+                                        <option value="" disabled selected>Sélectionnez une option</option>
+                                        <option value="apto1">Appartement 1 - Bogotá</option>
+                                        <option value="apto2">Appartement 2 - Bogotá</option>
+                                        <option value="apto3">Appartement 3 - Bogotá</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Code de réservation (Airbnb) *</label>
+                                    <input type="text" name="bookingCode" class="input" placeholder="Ex. HM12345678"
+                                        required>
+                                </div>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Type de pièce d'identité *</label>
+                                    <select name="idType" class="select" required>
+                                        <option value="PAS">Passeport</option>
+                                        <option value="CC">Carte Nationale d'Identité (CC)</option>
+                                        <option value="CE">Carte d'Étranger (CE)</option>
+                                        <option value="OTHER">Autre</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Numéro d'identité *</label>
+                                    <input type="text" name="idNumber" class="input" required>
+                                </div>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Prénom(s) *</label>
+                                    <input type="text" name="firstName" class="input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Nom(s) *</label>
+                                    <input type="text" name="lastName" class="input" required>
+                                </div>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Ville de résidence *</label>
+                                    <input type="text" name="cityResidence" class="input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Ville de provenance *</label>
+                                    <input type="text" name="cityOrigin" class="input" required>
+                                </div>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Téléphone *</label>
+                                    <input type="tel" name="phone" class="input" placeholder="+1 123 456 7890" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">E-mail *</label>
+                                    <input type="email" name="email" class="input" required>
+                                </div>
+                            </div>
+
+                            <h3>Informations du séjour</h3>
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">N° chambre/lit/place (le cas échéant)</label>
+                                    <input type="text" name="roomNumber" class="input">
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Motif principal du voyage</label>
+                                    <select name="tripPurpose" class="select">
+                                        <option value="vacaciones">Vacances / Loisirs</option>
+                                        <option value="negocios">Affaires / Travail</option>
+                                        <option value="familia">Visite familiale</option>
+                                        <option value="salud">Santé</option>
+                                        <option value="otro">Autre</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Nombre de voyageurs supplémentaires</label>
+                                    <input type="number" id="num_companions_fr" name="numCompanions" class="input"
+                                        min="0" value="0" oninput="renderCompanionsFr()">
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Type d'hébergement</label>
+                                    <input type="text" name="accommodationType" class="input"
+                                        placeholder="Ex. Appartement complet">
+                                </div>
+                            </div>
+
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Arrivée *</label>
+                                    <input type="date" name="checkIn" class="input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Départ *</label>
+                                    <input type="date" name="checkOut" class="input" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="label">Montant total payé (hébergement) *</label>
+                                <input type="number" name="amountPaid" class="input" step="0.01" required>
+                            </div>
+
+                            <!-- Dynamic Companions Section -->
+                            <div id="companions-section_fr" style="display:none;">
+                                <h3>Voyageurs supplémentaires</h3>
+                                <div id="companions-container_fr"></div>
+                            </div>
+
+                            <h3>Autorisation de traitement des données personnelles</h3>
+                            <div class="form-group">
+                                <p style="font-size: 0.9em; color: #555;">
+                                    Je confirme avoir été informé(e) de la Politique de traitement des données de Katary
+                                    et j'AUTORISE, de manière préalable, expresse et éclairée, le traitement de mes
+                                    données personnelles conformément à la Loi colombienne 1581 de 2012 et au Décret
+                                    1377 de 2013. Si des données de mineurs sont enregistrées, je confirme disposer de
+                                    l'autorisation du parent/tuteur légal et que l'intérêt supérieur de l'enfant est
+                                    respecté.
+                                </p>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="authorization" value="yes" required> Oui,
+                                        j'autorise</label>
+                                    <label><input type="radio" name="authorization" value="no" required> Non, je
+                                        n'autorise pas</label>
+                                </div>
+                            </div>
+
+                            <h3>Signature</h3>
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label class="label">Signature du voyageur (Nom complet) *</label>
+                                    <input type="text" name="guestSignature" class="input"
+                                        placeholder="Signature numérique (Tapez votre nom complet)" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label">Date *</label>
+                                    <input type="date" name="signatureDate" class="input" required>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn">Envoyer le registre</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Access Control
+        const urlParams = new URLSearchParams(window.location.search);
+        const accessCode = urlParams.get('access');
+
+        if (accessCode === 'katary2025') {
+            document.getElementById('content-wrapper').style.display = 'block';
+        } else {
+            document.getElementById('access-denied').style.display = 'flex';
+        }
+
+        // Language Switcher
+        function switchLanguage(lang) {
+            document.querySelectorAll('.lang-section').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.getElementById('lang-' + lang).classList.add('active');
+        }
+
+        // Render Companions (Spanish)
+        function renderCompanions() {
+            const count = parseInt(document.getElementById('num_companions').value) || 0;
+            const container = document.getElementById('companions-container');
+            const section = document.getElementById('companions-section');
+
+            container.innerHTML = '';
+
+            if (count > 0) {
+                section.style.display = 'block';
+                for (let i = 1; i <= count; i++) {
+                    const row = document.createElement('div');
+                    row.className = 'companion-row';
+                    row.innerHTML = `
+                        <h4>Acompañante ${i}</h4>
+                        <div class="grid-3">
+                            <div class="form-group" style="margin-bottom:0px;">
+                                <label class="label">Tipo ID</label>
+                                <select name="companion_${i}_type" class="select" required>
+                                    <option value="CC">CC</option>
+                                    <option value="CE">CE</option>
+                                    <option value="PAS">Pasaporte</option>
+                                    <option value="TI">TI</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="margin-bottom:0px;">
+                                <label class="label">N° ID</label>
+                                <input type="text" name="companion_${i}_id" class="input" required>
+                            </div>
+                             <div class="form-group" style="margin-bottom:0px;">
+                                <label class="label">Nombre completo</label>
+                                <input type="text" name="companion_${i}_name" class="input" required>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(row);
+                }
+            } else {
+                section.style.display = 'none';
+            }
+        }
+
+        // Render Companions (English)
+        function renderCompanionsEn() {
+            const count = parseInt(document.getElementById('num_companions_en').value) || 0;
+            const container = document.getElementById('companions-container_en');
+            const section = document.getElementById('companions-section_en');
+
+            container.innerHTML = '';
+
+            if (count > 0) {
+                section.style.display = 'block';
+                for (let i = 1; i <= count; i++) {
+                    const row = document.createElement('div');
+                    row.className = 'companion-row';
+                    row.innerHTML = `
+                        <h4>Guest ${i}</h4>
+                        <div class="grid-3">
+                            <div class="form-group" style="margin-bottom:0px;">
+                                <label class="label">ID Type</label>
+                                <select name="companion_${i}_type" class="select" required>
+                                    <option value="PAS">Passport</option>
+                                    <option value="CC">National ID (CC)</option>
+                                    <option value="CE">Foreign ID (CE)</option>
+                                    <option value="OTHER">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="margin-bottom:0px;">
+                                <label class="label">ID Number</label>
+                                <input type="text" name="companion_${i}_id" class="input" required>
+                            </div>
+                             <div class="form-group" style="margin-bottom:0px;">
+                                <label class="label">Full Name</label>
+                                <input type="text" name="companion_${i}_name" class="input" required>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(row);
+                }
+            } else {
+                section.style.display = 'none';
+            }
+        }
+
+        // Render Companions (Portuguese)
+        function renderCompanionsPt() {
+            const count = parseInt(document.getElementById('num_companions_pt').value) || 0;
+            const container = document.getElementById('companions-container_pt');
+            const section = document.getElementById('companions-section_pt');
+
+            container.innerHTML = '';
+
+            if (count > 0) {
+                section.style.display = 'block';
+                for (let i = 1; i <= count; i++) {
+                    const row = document.createElement('div');
+                    row.className = 'companion-row';
+                    row.innerHTML = `
+                        <h4>Acompanhante ${i}</h4>
+                        <div class="grid-3">
+                            <div class="form-group" style="margin-bottom:0px;">
+                                <label class="label">Tipo Doc.</label>
+                                <select name="companion_${i}_type" class="select" required>
+                                    <option value="PAS">Passaporte</option>
+                                    <option value="CC">Cédula de Cidadania (CC)</option>
+                                    <option value="CE">Cédula de Estrangeiro (CE)</option>
+                                    <option value="OTHER">Outro</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="margin-bottom:0px;">
+                                <label class="label">Nº Doc.</label>
+                                <input type="text" name="companion_${i}_id" class="input" required>
+                            </div>
+                             <div class="form-group" style="margin-bottom:0px;">
+                                <label class="label">Nome completo</label>
+                                <input type="text" name="companion_${i}_name" class="input" required>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(row);
+                }
+            } else {
+                section.style.display = 'none';
+            }
+        }
+
+        // Render Companions (French)
+        function renderCompanionsFr() {
+            const count = parseInt(document.getElementById('num_companions_fr').value) || 0;
+            const container = document.getElementById('companions-container_fr');
+            const section = document.getElementById('companions-section_fr');
+
+            container.innerHTML = '';
+
+            if (count > 0) {
+                section.style.display = 'block';
+                for (let i = 1; i <= count; i++) {
+                    const row = document.createElement('div');
+                    row.className = 'companion-row';
+                    row.innerHTML = `
+                        <h4>Voyageur ${i}</h4>
+                        <div class="grid-3">
+                            <div class="form-group" style="margin-bottom:0px;">
+                                <label class="label">Type ID</label>
+                                <select name="companion_${i}_type" class="select" required>
+                                    <option value="PAS">Passeport</option>
+                                    <option value="CC">Carte d'Identité (CC)</option>
+                                    <option value="CE">Carte d'Étranger (CE)</option>
+                                    <option value="OTHER">Autre</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="margin-bottom:0px;">
+                                <label class="label">N° ID</label>
+                                <input type="text" name="companion_${i}_id" class="input" required>
+                            </div>
+                             <div class="form-group" style="margin-bottom:0px;">
+                                <label class="label">Nom complet</label>
+                                <input type="text" name="companion_${i}_name" class="input" required>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(row);
+                }
+            } else {
+                section.style.display = 'none';
+            }
+        }
+
+        // Date Validation Messages
+        const dateErrorMessages = {
+            es: "La fecha de salida no puede ser anterior a la fecha de llegada.",
+            en: "Check-out date cannot be earlier than check-in date.",
+            pt: "A data de saída não pode ser anterior à data de chegada.",
+            fr: "La date de départ ne peut pas être antérieure à la date d'arrivée."
+        };
+
+        function validateDates(form) {
+            // Check for both naming conventions
+            const checkin = form.querySelector('[name="checkin"]') || form.querySelector('[name="checkIn"]');
+            const checkout = form.querySelector('[name="checkout"]') || form.querySelector('[name="checkOut"]');
+
+            if (!checkin || !checkout) return;
+
+            const lang = form.closest('.lang-section').id.replace('lang-', '');
+            const message = dateErrorMessages[lang] || dateErrorMessages.es;
+
+            if (checkin.value && checkout.value) {
+                if (new Date(checkout.value) < new Date(checkin.value)) {
+                    checkout.setCustomValidity(message);
+                } else {
+                    checkout.setCustomValidity('');
+                }
+            } else {
+                checkout.setCustomValidity('');
+            }
+        }
+
+        // Add event listeners to all date inputs
+        document.querySelectorAll('input[type="date"]').forEach(input => {
+            input.addEventListener('change', function () {
+                validateDates(this.form);
+            });
+        });
+
+        // Handle Spanish Form Submit
+        function handleSpanishSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+
+            const auth = form.querySelector('input[name="authorization"]:checked');
+            if (!auth || auth.value === 'no') {
+                alert('Debe autorizar el tratamiento de datos para continuar.');
+                return;
+            }
+
+            validateDates(form);
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            alert('Formulario TRA enviado correctamente (Formato Actualizado).');
+            form.reset();
+            document.getElementById('companions-container').innerHTML = '';
+            document.getElementById('companions-section').style.display = 'none';
+        }
+
+        // Handle English Submit with JSON
+        async function handleEnglishSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+
+            const auth = form.querySelector('input[name="authorization"]:checked');
+            if (!auth || auth.value === 'no') {
+                alert('You must authorize data processing to continue.');
+                return;
+            }
+
+            validateDates(form);
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            // Build JSON
+            const companions = [];
+            let numCompanions = parseInt(formData.get('numCompanions')) || 0;
+
+            for (let i = 1; i <= numCompanions; i++) {
+                companions.push({
+                    tipo_id: formData.get(`companion_${i}_type`),
+                    numero_id: formData.get(`companion_${i}_id`),
+                    nombre_completo: formData.get(`companion_${i}_name`)
+                });
+            }
+
+            const payload = {
+                apartamento: formData.get('apartment'),
+                codigo_reserva: formData.get('bookingCode'),
+                tipo_id: formData.get('idType'),
+                numero_id: formData.get('idNumber'),
+                nombres: formData.get('firstName'),
+                apellidos: formData.get('lastName'),
+                ciudad_residencia: formData.get('cityResidence'),
+                ciudad_procedencia: formData.get('cityOrigin'),
+                telefono: formData.get('phone'),
+                email: formData.get('email'),
+                motivo_viaje: formData.get('tripPurpose'),
+                tipo_acomodacion: formData.get('accommodationType'),
+                numero_acompanantes: numCompanions,
+                fecha_llegada: formData.get('checkIn'),
+                fecha_salida: formData.get('checkOut'),
+                valor_pagado: parseFloat(formData.get('amountPaid')),
+                consentimiento: auth.value === 'yes',
+                firma: formData.get('guestSignature'),
+                fecha_registro: formData.get('signatureDate'),
+                companions: companions
+            };
+
+            // Assuming /api/tra is the endpoint
+            try {
+                const response = await fetch('http://localhost:3000/api/tra', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    alert('TRA Form submitted successfully!');
+                    form.reset();
+                    document.getElementById('companions-container_en').innerHTML = '';
+                    document.getElementById('companions-section_en').style.display = 'none';
+                } else {
+                    alert('Error submitting form: ' + (result.error || 'Unknown error'));
+                }
+            } catch (error) {
+                console.error('Submission failed', error);
+                alert('Network error. Please try again.');
+            }
+        }
+
+        // Handle Portuguese Submit
+        function handlePortugueseSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+
+            const auth = form.querySelector('input[name="authorization"]:checked');
+            if (!auth || auth.value === 'no') {
+                alert('Você deve autorizar o tratamento de dados para continuar.');
+                return;
+            }
+
+            validateDates(form);
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            alert('Formulário TRA enviado com sucesso (Formato Atualizado).');
+            form.reset();
+            document.getElementById('companions-container_pt').innerHTML = '';
+            document.getElementById('companions-section_pt').style.display = 'none';
+        }
+
+        // Handle French Submit
+        function handleFrenchSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+
+            const auth = form.querySelector('input[name="authorization"]:checked');
+            if (!auth || auth.value === 'no') {
+                alert("Vous devez autoriser le traitement des données pour continuer.");
+                return;
+            }
+
+            validateDates(form);
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            alert("Formulaire TRA envoyé avec succès (Format Mise à jour).");
+            form.reset();
+            document.getElementById('companions-container_fr').innerHTML = '';
+            document.getElementById('companions-section_fr').style.display = 'none';
+        }
+
+        // Handle Generic Submit (Other languages)
+        function handleSubmit(event, successMessage) {
+            event.preventDefault();
+            const form = event.target;
+
+            // Run validation one last time
+            validateDates(form);
+
+            if (form.checkValidity()) {
+                alert(successMessage);
+                form.reset();
+            } else {
+                form.reportValidity();
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katary Renta Temporal | Portal de Huéspedes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset & Variables */
+        :root {
+            --bg-light: #F8F7F4;
+            --bg-secondary: #EEE8DF;
+            --primary: #7A7A7A;
+            --accent: #C47A5A;
+            --text-dark: #3A3A3A;
+            --text-light: #6B7280;
+            --white: #FFFFFF;
+            --border: #D1D5DB;
+            --error: #DC2626;
+            --success: #059669;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            font-size: 16px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* Links & Buttons Update */
+        a {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        /* Hover effect */
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            border-radius: 8px;
+        }
+
+        /* Utilities */
+        .container {
+            width: 100%;
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--accent);
+            color: var(--white);
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+            color: var(--white);
+        }
+
+        .btn:focus {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        @media (min-width: 640px) {
+            .btn {
+                width: auto;
+            }
+        }
+
+        /* Navbar */
+        nav {
+            background: #F3F0EB;
+            color: var(--text-dark);
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #3A3A3A;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            border-radius: 0;
+        }
+
+        @media (min-width: 768px) {
+            .logo img {
+                height: 64px;
+            }
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: block;
+            }
+
+            .nav-links a {
+                margin-left: 24px;
+                font-weight: 500;
+                opacity: 0.9;
+                color: #C47A5A;
+            }
+
+            .nav-links a:hover {
+                opacity: 1;
+                text-decoration: underline;
+                color: #2B2B2B;
+            }
+
+            .nav-links a:focus {
+                outline: 2px solid var(--accent);
+            }
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(58, 58, 58, 0.8), rgba(58, 58, 58, 0.7)), url('https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover;
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 120px 0;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero p {
+                font-size: 20px;
+            }
+        }
+
+        /* Properties & Grids */
+        .grid {
+            display: grid;
+            gap: 32px;
+        }
+
+        .grid-3 {
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 768px) {
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .property-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .property-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 24px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-location {
+            color: var(--accent);
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        /* Guest Info */
+        .info-box {
+            background: var(--white);
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        @media (min-width: 768px) {
+            .info-box {
+                padding: 40px;
+            }
+        }
+
+        .grid-2 {
+            display: grid;
+            gap: 32px;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+
+        /* Forms Section */
+        .form-section {
+            background: var(--bg-secondary);
+        }
+
+        .form-container {
+            background: var(--white);
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        @media (min-width: 768px) {
+            .form-container {
+                padding: 40px;
+            }
+        }
+
+        .form-tabs {
+            display: flex;
+            margin-bottom: 32px;
+            border-bottom: 2px solid #E5E7EB;
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            padding: 16px 24px;
+            background: none;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            white-space: nowrap;
+            transition: var(--transition);
+        }
+
+        .tab-btn:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: -2px;
+        }
+
+        .tab-btn.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--text-dark);
+        }
+
+        .input,
+        .textarea,
+        .select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #D1D5DB;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 16px;
+            background: var(--white);
+        }
+
+        .input:focus,
+        .select:focus,
+        .textarea:focus {
+            outline: 2px solid var(--accent);
+            border-color: transparent;
+        }
+
+        .input:invalid:not(:placeholder-shown) {
+            border-color: var(--error);
+        }
+
+        .error-message {
+            color: var(--error);
+            font-size: 12px;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .input:invalid:not(:placeholder-shown)+.error-message {
+            display: block;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: start;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .checkbox-group input {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            accent-color: var(--accent);
+        }
+
+        .form-text {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 60px 0 30px;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 32px;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .footer-links {
+                flex-direction: row;
+                gap: 24px;
+                justify-content: center;
+            }
+        }
+
+        .footer-links a {
+            opacity: 0.8;
+            padding: 8px;
+            color: var(--white);
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        .legal-text {
+            text-align: center;
+            opacity: 0.6;
+            font-size: 12px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Animation */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.4s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav aria-label="Navegación Principal">
+        <div class="container nav-content">
+            <div class="logo">
+                <img src="images/logo-katary.jpg" alt="Katary Renta Temporal – Renta de alojamientos en Bogotá">
+                Katary Renta Temporal
+            </div>
+            <div class="nav-links">
+                <a href="#properties">Propiedades</a>
+                <a href="#info">Información</a>
+                <a href="#forms">Formularios (TRA)</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="container">
+            <h1>Bienvenido a su Estadía</h1>
+            <p>Información importante, detalles de la propiedad y registro obligatorio de huéspedes para su visita a
+                Colombia.</p>
+        </div>
+    </header>
+
+    <!-- Properties List -->
+    <section id="properties" class="section">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 48px;">
+                <h2>Nuestras Propiedades</h2>
+                <p>Alojamientos gestionados profesionalmente en Bogotá.</p>
+
+            </div>
+
+            <div class="grid grid-3">
+                <!-- Property 1 -->
+                <article class="property-card">
+                    <img src="images/apto1.jpg" alt="Apartamento moderno" class="card-img">
+                    <div class="card-body">
+                        <div class="card-location">Bogotá, Colombia</div>
+                        <h3 class="card-title">Apartamento 1 – Edificio en Bogotá</h3>
+                        <p class="card-desc">Apartamento moderno ubicado en el mismo edificio que las demás unidades,
+                            ideal para estancias cortas y medias.</p>
+                        <a href="https://www.airbnb.com.co/rooms/578123274337168637" target="_blank"
+                            rel="noopener noreferrer" class="btn btn-outline" style="text-align:center;">Ver en
+                            Airbnb</a>
+                    </div>
+                </article>
+
+                <!-- Property 2 -->
+                <article class="property-card">
+                    <img src="images/apto2.jpg" alt="Apartamento cómodo" class="card-img">
+                    <div class="card-body">
+                        <div class="card-location">Bogotá, Colombia</div>
+                        <h3 class="card-title">Apartamento 2 – Edificio en Bogotá</h3>
+                        <p class="card-desc">Apartamento cómodo y funcional en edificio residencial, pensado para
+                            viajeros que buscan una experiencia tranquila.</p>
+                        <a href="https://www.airbnb.com.co/rooms/1341224655103048741" target="_blank"
+                            rel="noopener noreferrer" class="btn btn-outline" style="text-align:center;">Ver en
+                            Airbnb</a>
+                    </div>
+                </article>
+
+                <!-- Property 3 -->
+                <article class="property-card">
+                    <img src="images/apto3.jpg" alt="Apartamento equipado" class="card-img">
+                    <div class="card-body">
+                        <div class="card-location">Bogotá, Colombia</div>
+                        <h3 class="card-title">Apartamento 3 – Edificio en Bogotá</h3>
+                        <p class="card-desc">Apartamento bien equipado dentro del mismo edificio, ideal para viajes de
+                            trabajo o descanso.</p>
+                        <a href="https://es.airbnb.com/rooms/1026149684606570041" target="_blank"
+                            rel="noopener noreferrer" class="btn btn-outline" style="text-align:center;">Ver en
+                            Airbnb</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guest Info -->
+    <section id="info" class="section" style="background-color: var(--white);">
+        <div class="container">
+            <div class="info-box">
+                <h2>Información y Reglas del Huésped</h2>
+                <p>Para garantizar una estadía segura, tranquila y conforme a la normativa vigente, tenga en cuenta lo
+                    siguiente:</p>
+
+                <div class="grid grid-2" style="margin-top: 32px;">
+                    <div>
+                        <h3>🛂 Identificación y Registro</h3>
+                        <p style="font-size: 15px; color: var(--text-light);">Todos los huéspedes deben presentar un
+                            documento ORIGINAL válido (Pasaporte o Cédula) para el Registro Nacional de Turismo. El
+                            registro es obligatorio para cada persona alojada.</p>
+                    </div>
+                    <div>
+                        <h3>🔇 Ruido y Convivencia</h3>
+                        <p style="font-size: 15px; color: var(--text-light);">Respete a los vecinos y demás residentes.
+                            Las horas de silencio se aplican desde las 22:00 hasta las 08:00. No se permiten reuniones
+                            ruidosas ni música a alto volumen.</p>
+                    </div>
+                    <div>
+                        <h3>🔞 Protección de Menores</h3>
+                        <p style="font-size: 15px; color: var(--text-light);">En cumplimiento de la Ley 679 de 2001 y
+                            normas conexas, se prohíbe el ingreso de menores sin sus padres, tutores legales o la
+                            documentación que acredite autorización.</p>
+                    </div>
+                    <div>
+                        <h3>🚭 Ambientes Libres de Humo</h3>
+                        <p style="font-size: 15px; color: var(--text-light);">Está prohibido fumar dentro de las
+                            propiedades. Las infracciones pueden generar cobros adicionales por limpieza y/o daños.</p>
+                    </div>
+                    <div>
+                        <h3>🏠 Uso de las Instalaciones</h3>
+                        <p style="font-size: 15px; color: var(--text-light);">Cuide el mobiliario, electrodomésticos y
+                            elementos del apartamento. Cualquier daño será cobrado según el inventario y/o costos de
+                            reposición.</p>
+                    </div>
+                    <div>
+                        <h3>👥 Capacidad Máxima</h3>
+                        <p style="font-size: 15px; color: var(--text-light);">El número de huéspedes no puede superar la
+                            capacidad registrada en la reserva. Visitantes externos deben ser autorizados previamente.
+                        </p>
+                    </div>
+                    <div>
+                        <h3>🗑️ Basuras y Orden</h3>
+                        <p style="font-size: 15px; color: var(--text-light);">Por respeto al edificio y a los demás
+                            residentes, mantenga los espacios limpios y deposite los residuos en los puntos asignados.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Information Note -->
+    <section id="forms" class="section form-section" style="background-color: var(--bg-secondary); text-align: center;">
+        <div class="container">
+            <div
+                style="background: var(--white); padding: 40px; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                <h2>Documentación de Huéspedes</h2>
+                <p>Los formularios obligatorios (TRA y Código de Conducta) se envían directamente al huésped antes de su
+                    llegada.</p>
+                <p style="font-size: 14px; opacity: 0.8;">Si usted es un huésped confirmado y necesita acceso, por favor
+                    contacte a su anfitrión.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="text-center">
+                <div class="logo" style="margin-bottom: 24px; justify-content: center;">Katary Renta Temporal</div>
+
+
+
+                <div class="legal-text">
+                    <p>Katary Renta Temporal es una entidad comprometida con la prevención de la explotación y el abuso
+                        sexual
+                        de menores de edad asociados al turismo. En desarrollo de lo dispuesto en la Ley 679 de 2001 y
+                        la Ley 1336 de 2009, advertimos que dichas conductas son castigadas conforme a las disposiciones
+                        legales vigentes.</p>
+                    <p style="margin-top: 12px; opacity: 0.8;">&copy; 2025 Katary Renta Temporal. Todos los derechos
+                        reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission mock only for this page if needed (though no forms are left on index)
+        function handleSubmit(event, message) {
+            event.preventDefault();
+            alert(message);
+        }
+    </script>
+
+</body>
+
+</html>

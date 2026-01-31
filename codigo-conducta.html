@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Katary Renta Temporal | Código de Conducta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset & Variables */
+        :root {
+            --bg-light: #F8F7F4;
+            --bg-secondary: #EEE8DF;
+            --primary: #7A7A7A;
+            --accent: #C47A5A;
+            --text-dark: #3A3A3A;
+            --text-light: #6B7280;
+            --white: #FFFFFF;
+            --border: #D1D5DB;
+            --error: #DC2626;
+            --success: #059669;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            font-size: 16px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul,
+        ol {
+            margin-bottom: 1rem;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 40px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* Header */
+        header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        /* Language Selector */
+        .lang-selector-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .lang-select {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            font-family: inherit;
+            color: var(--text-dark);
+            background: var(--white);
+            cursor: pointer;
+        }
+
+        /* Forms */
+        .form-container {
+            background: var(--white);
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-top: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .form-container {
+                padding: 40px;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--text-dark);
+        }
+
+        .input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #D1D5DB;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 16px;
+            background: var(--white);
+        }
+
+        .input:focus {
+            outline: 2px solid var(--accent);
+            border-color: transparent;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: start;
+            gap: 12px;
+            margin-top: 24px;
+            margin-bottom: 24px;
+            padding: 16px;
+            background-color: #F9FAFB;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .checkbox-group input {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            accent-color: var(--accent);
+        }
+
+        #access-denied {
+            display: none;
+            height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #content-wrapper {
+            display: none;
+        }
+
+        .legal-content {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+
+        .legal-content h3 {
+            margin-top: 24px;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+        th,
+        td {
+            border: 1px solid var(--border);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--bg-secondary);
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="access-denied">
+        <h2>Acceso no autorizado</h2>
+        <p>Por favor verifique el enlace proporcionado.</p>
+    </div>
+
+    <div id="content-wrapper">
+        <header>
+            Katary Renta Temporal
+        </header>
+
+        <section class="section">
+            <div class="container">
+
+                <div class="lang-selector-container">
+                    <select class="lang-select" id="lang-selector" onchange="changeLanguage(this.value)">
+                        <option value="es">Español (ES)</option>
+                        <option value="en">English (EN)</option>
+                        <option value="pt">Português (PT)</option>
+                        <option value="fr">Français (FR)</option>
+                    </select>
+                </div>
+
+                <!-- ESPAÑOL -->
+                <div id="lang-es" class="lang-content">
+                    <div class="text-center" style="margin-bottom: 24px;">
+                        <h2>Manual de Convivencia</h2>
+                    </div>
+
+                    <div class="legal-content">
+                        <h3>Manual de Convivencia para Huéspedes</h3>
+                        <p><strong>Apartamentos de renta temporal – Edificio Katary</strong></p>
+                        <p>Este manual aplica a todas las personas que se alojen o ingresen como visitantes a los
+                            apartamentos operados para renta temporal en el Edificio Katary. Su aceptación es condición
+                            de la reserva y del ingreso al edificio.</p>
+
+                        <h3>1) Objetivo</h3>
+                        <p>Garantizar una estadía segura, tranquila y respetuosa para huéspedes, vecinos, personal del
+                            edificio y proveedores.</p>
+
+                        <h3>2) Registro obligatorio de ingreso (REQUISITO INDISPENSABLE)</h3>
+                        <p>Para proteger a todos los residentes y cumplir protocolos de seguridad:</p>
+                        <ol>
+                            <li>Toda persona que ingrese al edificio debe registrarse en portería/recepción.</li>
+                            <li>Debe presentar documento ORIGINAL vigente (no se aceptan fotos, fotocopias ni capturas):
+                                cédula de ciudadanía/extranjería, pasaporte, o documento válido según corresponda.</li>
+                            <li>Se registrarán: nombre, número de documento, fecha/hora de ingreso y salida, apartamento
+                                que visita.</li>
+                            <li>No está permitido el ingreso de personas no registradas.</li>
+                            <li>Los huéspedes deben enviar previamente (cuando se solicite) la lista de ocupantes para
+                                agilizar el check-in; aun así, la portería exigirá el documento original.</li>
+                        </ol>
+                        <p>Incumplir este punto implica negación de ingreso y/o multa (ver tabla de multas).</p>
+
+                        <h3>3) Capacidad, ocupación y visitantes</h3>
+                        <p>Se debe respetar la capacidad máxima indicada en el anuncio y la reserva.</p>
+                        <p>Visitantes: solo ingresan si están pre-registrados y se registran con documento original.</p>
+                        <p>Queda prohibido prestar llaves, tarjetas o accesos a terceros no autorizados.</p>
+
+                        <h3>4) Menores de edad</h3>
+                        <p>No se permite el ingreso de menores de edad sin la compañía de sus padres o representante
+                            legal, quienes deberán registrarse igualmente con documento original.</p>
+                        <p>Si se detecta un caso que sugiera vulneración de derechos de un menor, se dará aviso
+                            inmediato a las autoridades competentes.</p>
+
+                        <h3>5) Cero tolerancia: explotación sexual y trata</h3>
+                        <p>En Katary estamos en contra de la prostitución infantil y el turismo sexual.</p>
+                        <p>Está prohibido cualquier acto relacionado con explotación sexual de niños, niñas y
+                            adolescentes, trata de personas o actividades que vulneren derechos. Ante cualquier sospecha
+                            o evidencia, se procederá a terminar la estadía y reportar a autoridades, sin perjuicio de
+                            cobros y sanciones.</p>
+
+                        <h3>6) Ruido, fiestas y convivencia</h3>
+                        <p>Horario de descanso: 8:00 p.m. a 8:00 a.m. (evite música alta, gritos y golpes; use volumen
+                            moderado en todo momento).</p>
+                        <p>Prohibidas fiestas, eventos y reuniones que generen quejas, ruido o ingreso masivo de
+                            personas.</p>
+                        <p>Si hay quejas reiteradas o intervención de seguridad/administración, se aplicarán multas.</p>
+
+                        <h3>7) Zonas comunes y normas del edificio</h3>
+                        <p>Respete ascensores, pasillos, recepción, parqueaderos y demás zonas comunes.</p>
+                        <p>No deje basura, colillas, botellas o elementos personales en áreas comunes.</p>
+                        <p>No se permite fumar en zonas no autorizadas ni alterar sistemas de seguridad (cámaras,
+                            detectores, cerraduras, etc.).</p>
+
+                        <h3>8) Cuidado del apartamento</h3>
+                        <p>Responda por el buen uso de muebles, paredes, lencería, electrodomésticos y dotación.</p>
+                        <p>Está prohibido mover mobiliario de manera que dañe pisos/paredes o generar riesgos.</p>
+                        <p>La basura debe dejarse embolsada y en el lugar indicado.</p>
+
+                        <h3>9) Prohibiciones principales</h3>
+                        <p>Queda prohibido: ingresar o permitir el ingreso de personas sin registro y sin documento
+                            original; exceder la capacidad del apartamento; fiestas/escándalos; consumo/venta de
+                            sustancias ilegales; portar armas o elementos peligrosos; daños intencionales o por
+                            negligencia; actividades de explotación sexual, trata o similares.</p>
+
+                        <h3>10) Multas y cobros por incumplimiento</h3>
+                        <p>Las multas son cargos contractuales por incumplimiento y se suman (si aplica) a cobros por
+                            daños, limpieza especial o reposición. Se cobran por el medio permitido: depósito,
+                            plataforma (Airbnb/Booking/OTA) o cobro directo autorizado por el huésped.</p>
+
+                        <h4>Tabla de multas (valores en COP)</h4>
+                        <table>
+                            <tr>
+                                <th>Infracción</th>
+                                <th>Valor</th>
+                            </tr>
+                            <tr>
+                                <td>Ingreso de persona sin registro y sin documento original</td>
+                                <td>$400.000 por persona/evento</td>
+                            </tr>
+                            <tr>
+                                <td>Intento de evadir controles de portería o prestar accesos</td>
+                                <td>$600.000</td>
+                            </tr>
+                            <tr>
+                                <td>Exceder la capacidad máxima del apartamento</td>
+                                <td>$600.000 + $200.000 por persona adicional</td>
+                            </tr>
+                            <tr>
+                                <td>Ruido/quejas verificadas (primera intervención)</td>
+                                <td>$300.000</td>
+                            </tr>
+                            <tr>
+                                <td>Reincidencia de ruido/fiesta/evento</td>
+                                <td>$1.200.000 y posible terminación inmediata de la estadía sin reembolso</td>
+                            </tr>
+                            <tr>
+                                <td>Fumar donde esté prohibido / evidencia de humo u olores persistentes</td>
+                                <td>$450.000 + limpieza especial si aplica</td>
+                            </tr>
+                            <tr>
+                                <td>Mascotas no autorizadas o sin cumplir condiciones del anuncio</td>
+                                <td>$500.000 + limpieza/daños</td>
+                            </tr>
+                            <tr>
+                                <td>Daños a dotación, mobiliario o infraestructura</td>
+                                <td>Valor total de reparación o reposición + $250.000 por gestión administrativa (si
+                                    aplica)</td>
+                            </tr>
+                            <tr>
+                                <td>Manipular o desactivar elementos de seguridad (cerraduras, alarmas, detectores)</td>
+                                <td>$1.500.000 + costos técnicos</td>
+                            </tr>
+                            <tr>
+                                <td>Actividades ilegales o de alto riesgo (incluye explotación sexual, trata, etc.)</td>
+                                <td>Terminación inmediata de estadía, reporte a autoridades y cobro de perjuicios/daños
+                                    que correspondan</td>
+                            </tr>
+                        </table>
+                        <p><small>Nota: Si el daño o perjuicio supera el valor de la multa, se cobrará el total
+                                soportado con evidencia (factura, cotización, acta, fotos, etc.).</small></p>
+
+                        <h3>11) Procedimiento para aplicar y cobrar multas</h3>
+                        <ol>
+                            <li>Verificación del hecho: reporte de portería/administración, acta, evidencia fotográfica,
+                                audio, video o testimonios.</li>
+                            <li>Notificación al huésped (mensaje y/o acta): se indicará la falta, evidencia disponible y
+                                valor a cobrar.</li>
+                            <li>Cobro: preferiblemente mediante depósito/garantía o centro de resoluciones de la
+                                plataforma. Si no hay depósito suficiente, se tramitará por la plataforma o cobro
+                                directo según autorización.</li>
+                            <li>Plazo: pago inmediato o máximo 24 horas desde la notificación, salvo que la plataforma
+                                defina otro proceso.</li>
+                            <li>Terminación de estadía: en faltas graves o reincidência, se podrá exigir la salida,
+                                priorizando la seguridad y convivencia.</li>
+                        </ol>
+
+                        <h3>12) Seguridad y objetos personales</h3>
+                        <p>No deje puertas abiertas ni entregue accesos a terceros.</p>
+                        <p>Katary no se hace responsable por pérdida de objetos por descuido del huésped.</p>
+
+                        <h3>13) Aceptación y firma del huésped</h3>
+                        <p>Al reservar e ingresar, el huésped declara que leyó, entendió y acepta este manual, y se
+                            compromete a que todas las personas de su grupo y sus visitantes lo cumplan.</p>
+                    </div>
+
+                    <div class="form-container">
+                        <form onsubmit="handleSubmit(event, 'Formulario aceptado correctamente.')">
+                            <div class="form-group">
+                                <label class="label">Nombre completo</label>
+                                <input type="text" class="input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="label">Documento (tipo y número)</label>
+                                <input type="text" class="input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="label">Apartamento</label>
+                                <input type="text" class="input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="label">Fecha</label>
+                                <input type="date" class="input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="label">Firma (Escriba su nombre)</label>
+                                <input type="text" class="input" required>
+                            </div>
+
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="check-es" required>
+                                <label for="check-es">Declaro que he leído y acepto el Manual de Convivencia</label>
+                            </div>
+
+                            <button type="submit" class="btn">Enviar Aceptación</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- ENGLISH -->
+                <div id="lang-en" class="lang-content" style="display: none;">
+                    <div class="text-center" style="margin-bottom: 24px;">
+                        <h2>Guest House Rules</h2>
+                    </div>
+
+                    <div class="legal-content">
+                        <h3>Guest House Rules</h3>
+                        <p><strong>Short-term Rentals – Katary Building</strong></p>
+                        <p>These rules apply to all guests staying in, or entering as visitors to, the short-term rental
+                            apartments in the Katary Building. Acceptance of these rules is a condition of the booking
+                            and of entry into the building.</p>
+
+                        <h3>1) Purpose</h3>
+                        <p>To ensure a safe, quiet, and respectful stay for guests, neighbors, building staff, and
+                            service providers.</p>
+
+                        <h3>2) Mandatory entry registration (NON-NEGOTIABLE REQUIREMENT)</h3>
+                        <p>To protect everyone and comply with security protocols:</p>
+                        <ol>
+                            <li>Every person entering the building must register at the front desk/security.</li>
+                            <li>An ORIGINAL, valid ID must be shown (photos, copies, or screenshots are not accepted):
+                                national ID, foreign ID, passport, or another valid document as applicable.</li>
+                            <li>The following will be recorded: full name, ID number, entry/exit date and time, and the
+                                apartment being visited.</li>
+                            <li>Unregistered persons are not allowed to enter.</li>
+                            <li>Guests must provide (when requested) the list of occupants in advance to speed up
+                                check-in; however, security will still require the original ID.</li>
+                        </ol>
+                        <p>Failure to comply may result in denied entry and/or a fine (see fines table).</p>
+
+                        <h3>3) Capacity, occupancy, and visitors</h3>
+                        <p>The maximum occupancy stated in the listing and reservation must be respected.</p>
+                        <p>Visitors are allowed only if pre-registered and registered upon entry with an original ID.
+                        </p>
+                        <p>Handing over keys, cards, or access credentials to unauthorized third parties is prohibited.
+                        </p>
+
+                        <h3>4) Minors</h3>
+                        <p>Minors are not allowed to enter without their parents or legal guardian, who must also
+                            register with an original ID.</p>
+                        <p>If a situation suggests a minor's rights may be at risk, the competent authorities will be
+                            notified immediately.</p>
+
+                        <h3>5) Zero tolerance: sexual exploitation and trafficking</h3>
+                        <p>At Katary we oppose child prostitution and sex tourism.</p>
+                        <p>Any act related to the sexual exploitation of children and adolescents, human trafficking, or
+                            any activity that violates rights is strictly prohibited. If there is any suspicion or
+                            evidence, the stay will be terminated and authorities will be notified, without prejudice to
+                            charges and penalties.</p>
+
+                        <h3>6) Noise, parties, and community living</h3>
+                        <p>Quiet hours: 8:00 p.m. to 8:00 a.m. (avoid loud music, shouting, and banging; keep volume
+                            moderate at all times).</p>
+                        <p>Parties, events, and gatherings that generate complaints, excessive noise, or mass entry of
+                            people are prohibited.</p>
+                        <p>Repeated complaints or intervention by security/management will result in fines.</p>
+
+                        <h3>7) Common areas and building rules</h3>
+                        <p>Respect elevators, hallways, reception area, parking, and all common areas.</p>
+                        <p>Do not leave trash, cigarette butts, bottles, or personal items in common areas.</p>
+                        <p>Smoking is not allowed in unauthorized areas, and tampering with security systems (cameras,
+                            detectors, locks, etc.) is prohibited.</p>
+
+                        <h3>8) Care of the apartment</h3>
+                        <p>Guests are responsible for proper use of furniture, walls, linens, appliances, and all
+                            amenities.</p>
+                        <p>Moving furniture in a way that may damage floors/walls or create risks is prohibited.</p>
+                        <p>Trash must be bagged and left in the designated place.</p>
+
+                        <h3>9) Main prohibitions</h3>
+                        <p>It is prohibited to: enter or allow entry to anyone without registration and original ID;
+                            exceed maximum occupancy; hold parties or create disturbances; use/sell illegal substances;
+                            carry weapons or dangerous items; cause intentional or negligent damage; engage in sexual
+                            exploitation, trafficking, or related activities.</p>
+
+                        <h3>10) Fines and charges for non-compliance</h3>
+                        <p>Fines are contractual charges for non-compliance and, where applicable, are added to charges
+                            for damages, special cleaning, or replacement. They may be collected via the permitted
+                            method: security deposit, platform process (Airbnb/Booking/OTA), or authorized direct
+                            charge.</p>
+
+                        <h4>Fines table (amounts in COP)</h4>
+                        <table>
+                            <tr>
+                                <th>Violation</th>
+                                <th>Amount</th>
+                            </tr>
+                            <tr>
+                                <td>Entry of an unregistered person without original ID</td>
+                                <td>$400,000 per person/incident</td>
+                            </tr>
+                            <tr>
+                                <td>Attempt to bypass front desk controls or share access credentials</td>
+                                <td>$600,000</td>
+                            </tr>
+                            <tr>
+                                <td>Exceeding maximum occupancy</td>
+                                <td>$600,000 + $200,000 per additional person</td>
+                            </tr>
+                            <tr>
+                                <td>Verified noise/complaints (first intervention)</td>
+                                <td>$300,000</td>
+                            </tr>
+                            <tr>
+                                <td>Repeated noise/party/event</td>
+                                <td>$1,200,000 and possible immediate termination of the stay without refund</td>
+                            </tr>
+                            <tr>
+                                <td>Smoking where prohibited / persistent smoke odors</td>
+                                <td>$450,000 + special cleaning if applicable</td>
+                            </tr>
+                            <tr>
+                                <td>Unauthorized pets or non-compliance with listing conditions</td>
+                                <td>$500,000 + cleaning/damages</td>
+                            </tr>
+                            <tr>
+                                <td>Damage to amenities, furniture, or property</td>
+                                <td>Full repair/replacement cost + $250,000 administrative handling (if applicable)</td>
+                            </tr>
+                            <tr>
+                                <td>Tampering with or disabling security devices (locks, alarms, detectors)</td>
+                                <td>$1,500,000 + technical costs</td>
+                            </tr>
+                            <tr>
+                                <td>Illegal or high-risk activities (including sexual exploitation, trafficking, etc.)
+                                </td>
+                                <td>Immediate termination of stay, report to authorities, and collection of applicable
+                                    damages</td>
+                            </tr>
+                        </table>
+                        <p><small>Note: If the damage or loss exceeds the fine amount, the full supported amount will be
+                                charged (invoice, quote, report, photos, etc.).</small></p>
+
+                        <h3>11) Procedure to apply and collect fines</h3>
+                        <ol>
+                            <li>Verification: report by security/management, incident report, photo/audio/video
+                                evidence, or witness statements.</li>
+                            <li>Notice to the guest (message and/or written report): the breach, available evidence, and
+                                amount to be charged will be stated.</li>
+                            <li>Collection: preferably through the security deposit or the platform's resolution center.
+                                If the deposit is insufficient, collection will proceed via the platform or an
+                                authorized direct charge.</li>
+                            <li>Deadline: immediate payment or up to 24 hours from notice, unless the platform sets a
+                                different process.</li>
+                            <li>Termination of stay: in serious cases or repeated breaches, management may require
+                                departure, prioritizing safety and community well-being.</li>
+                        </ol>
+
+                        <h3>12) Security and personal belongings</h3>
+                        <p>Do not leave doors open or share access with third parties.</p>
+                        <p>Katary is not responsible for loss of personal items due to guest negligence.</p>
+
+                        <h3>13) Acceptance and guest signature</h3>
+                        <p>By booking and entering, the guest states that they have read, understood, and accepted these
+                            rules, and agrees to ensure that all members of their group and their visitors comply.</p>
+                    </div>
+
+                    <div class="form-container">
+                        <form onsubmit="handleSubmit(event, 'House rules accepted.')">
+                            <div class="form-group">
+                                <label class="label">Full name</label>
+                                <input type="text" class="input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="label">ID (type and number)</label>
+                                <input type="text" class="input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="label">Apartment</label>
+                                <input type="text" class="input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="label">Date</label>
+                                <input type="date" class="input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="label">Signature (Type your name)</label>
+                                <input type="text" class="input" required>
+                            </div>
+
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="check-en" required>
+                                <label for="check-en">I declare that I have read and accept the House Rules</label>
+                            </div>
+
+                            <button type="submit" class="btn">Submit Acceptance</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- PORTUGUÊS -->
+                <div id="lang-pt" class="lang-content" style="display: none;">
+                    <div class="text-center" style="margin-bottom: 24px;">
+                        <h2>Manual de Convivência</h2>
+                    </div>
+
+                    <div class="legal-content">
+                        <h3>Manual de Convivência para Hóspedes</h3>
+                        <p><strong>Locações por temporada – Edifício Katary</strong></p>
+                        <p>Este manual se aplica a todas as pessoas que se hospedem ou entrem como visitantes nos
+                            apartamentos de locação por temporada do Edifício Katary. A aceitação destas regras é
+                            condição da reserva e do ingresso no edifício.</p>
+
+                        <h3>1) Objetivo</h3>
+                        <p>Garantir uma estadia segura, tranquila e respeitosa para hóspedes, vizinhos, equipe do
+                            edifício e prestadores de serviço.</p>
+
+                        <h3>2) Registro obrigatório de entrada (REQUISITO INDISPENSÁVEL)</h3>
+                        <p>Para proteger todos e cumprir os protocolos de segurança:</p>
+                        <ol>
+                            <li>Toda pessoa que entrar no edifício deve se registrar na portaria/recepção.</li>
+                            <li>Deve apresentar um documento ORIGINAL válido (não são aceitas fotos, cópias ou capturas
+                                de tela): documento nacional, documento de estrangeiro, passaporte ou outro documento
+                                válido conforme o caso.</li>
+                            <li>Serão registrados: nome completo, número do documento, data/hora de entrada e saída e o
+                                apartamento visitado.</li>
+                            <li>É proibida a entrada de pessoas não registradas.</li>
+                            <li>Quando solicitado, os hóspedes devem enviar previamente a lista de ocupantes para
+                                agilizar o check-in; ainda assim, a portaria exigirá o documento original.</li>
+                        </ol>
+                        <p>O descumprimento pode resultad em negativa de entrada e/ou multa (ver tabela de multas).</p>
+
+                        <h3>3) Capacidade, ocupação e visitantes</h3>
+                        <p>A capacidade máxima indicada no anúncio e na reserva deve ser respeitada.</p>
+                        <p>Visitantes somente podem entrar se estiverem pré-cadastrados e se registrarem na entrada com
+                            documento original.</p>
+                        <p>É proibido emprestar chaves, cartões ou credenciais de acesso a terceiros não autorizados.
+                        </p>
+
+                        <h3>4) Menores de idade</h3>
+                        <p>Não é permitida a entrada de menores sem a companhia dos pais ou responsável legal, que
+                            também devem se registrar com documento original.</p>
+                        <p>Se houver indícios de violação de direitos de um menor, as autoridades competentes serão
+                            comunicadas imediatamente.</p>
+
+                        <h3>5) Tolerância zero: exploração sexual e tráfico</h3>
+                        <p>No Katary somos contra a prostituição infantil e o turismo sexual.</p>
+                        <p>É proibido qualquer ato relacionado à exploração sexual de crianças e adolescentes, tráfico
+                            de pessoas ou atividades que violem direitos. Havendo suspeita ou evidência, a estadia
+                            poderá ser encerrada e as autoridades serão acionadas, sem prejuízo de cobranças e sanções.
+                        </p>
+
+                        <h3>6) Ruído, festas e convivência</h3>
+                        <p>Horário de silêncio: 20:00 às 08:00 (evite música alta, gritos e batidas; mantenha volume
+                            moderado em todo momento).</p>
+                        <p>São proibidas festas, eventos e reuniões que gerem reclamações, ruído excessivo ou entrada
+                            massiva de pessoas.</p>
+                        <p>Reclamações repetidas ou intervenção da segurança/administração resultarão em multas.</p>
+
+                        <h3>7) Áreas comuns e regras do edifício</h3>
+                        <p>Respeite elevadores, corredores, recepção, estacionamentos e demais áreas comuns.</p>
+                        <p>Não deixe lixo, bitucas de cigarro, garrafas ou objetos pessoais nas áreas comuns.</p>
+                        <p>Não é permitido fumar em áreas não autorizadas nem mexer em sistemas de segurança (câmeras,
+                            detectores, fechaduras etc.).</p>
+
+                        <h3>8) Cuidado com o apartamento</h3>
+                        <p>O hóspede é responsável pelo bom uso de móveis, paredes, roupas de cama, eletrodomésticos e
+                            itens do imóvel.</p>
+                        <p>É proibido mover mobiliário de forma que danifique pisos/paredes ou crie riscos.</p>
+                        <p>O lixo deve ser ensacado e deixado no local indicado.</p>
+
+                        <h3>9) Principais proibições</h3>
+                        <p>É proibido: entrar ou permitir a entrada de pessoas sem registro e sem documento original;
+                            exceder a capacidade; realizar festas ou perturbações; consumir/vender substâncias ilegais;
+                            portar armas ou itens perigosos; causar danos intencionais ou por negligência; praticar
+                            exploração sexual, tráfico ou atividades relacionadas.</p>
+
+                        <h3>10) Multas e cobranças por descumprimento</h3>
+                        <p>As multas são cobranças contratuais por descumprimento e, quando aplicável, somam-se a
+                            valores por danos, limpeza especial ou reposição. Podem ser cobradas por: caução/depósito,
+                            plataforma (Airbnb/Booking/OTA) ou cobrança direta autorizada.</p>
+
+                        <h4>Tabela de multas (valores em COP)</h4>
+                        <table>
+                            <tr>
+                                <th>Infração</th>
+                                <th>Valor</th>
+                            </tr>
+                            <tr>
+                                <td>Entrada de pessoa sem registro e sem documento original</td>
+                                <td>$400.000 por pessoa/ocorrência</td>
+                            </tr>
+                            <tr>
+                                <td>Tentativa de burlar controles da portaria ou compartilhar acessos</td>
+                                <td>$600.000</td>
+                            </tr>
+                            <tr>
+                                <td>Exceder a capacidade máxima</td>
+                                <td>$600.000 + $200.000 por pessoa adicional</td>
+                            </tr>
+                            <tr>
+                                <td>Ruído/reclamações confirmadas (primeira intervenção)</td>
+                                <td>$300.000</td>
+                            </tr>
+                            <tr>
+                                <td>Reincidência de ruído/festa/evento</td>
+                                <td>$1.200.000 e possível encerramento imediato da estadia sem reembolso</td>
+                            </tr>
+                            <tr>
+                                <td>Fumar onde é proibido / odor persistente de fumaça</td>
+                                <td>$450.000 + limpeza especial se aplicável</td>
+                            </tr>
+                            <tr>
+                                <td>Animais não autorizados ou descumprimento das condições do anúncio</td>
+                                <td>$500.000 + limpeza/danos</td>
+                            </tr>
+                            <tr>
+                                <td>Danos a itens, mobiliário ou infraestrutura</td>
+                                <td>Custo total de reparo/reposição + $250.000 (se aplicável)</td>
+                            </tr>
+                            <tr>
+                                <td>Mexer ou desativar itens de segurança (fechaduras, alarmes, detectores)</td>
+                                <td>$1.500.000 + custos técnicos</td>
+                            </tr>
+                            <tr>
+                                <td>Atividades ilegais ou de alto risco (inclui exploração sexual, tráfico etc.)</td>
+                                <td>Encerramento imediato, comunicação às autoridades e cobrança de danos aplicáveis
+                                </td>
+                            </tr>
+                        </table>
+                        <p><small>Observação: Se o dano ou prejuízo superar o valor da multa, será cobrado o valor total
+                                comprovado (nota, orçamento, registro, fotos etc.).</small></p>
+
+                        <h3>11) Procedimento para aplicar e cobrar multas</h3>
+                        <ol>
+                            <li>Verificação: relato da portaria/administração, ocorrência, evidências (foto/áudio/vídeo)
+                                ou testemunhas.</li>
+                            <li>Notificação ao hóspede (mensagem e/ou registro): será informada a infração, a evidência
+                                disponível e o valor a cobrar.</li>
+                            <li>Cobrança: preferencialmente via caução/depósito ou centro de resoluções da plataforma.
+                                Se a caução for insuficiente, será cobrado pela plataforma ou por cobrança direta
+                                autorizada.</li>
+                            <li>Prazo: pagamento imediato ou em até 24 horas após a notificação, salvo regras da
+                                plataforma.</li>
+                            <li>Encerramento da estadia: em casos graves ou reincidência, poderá ser exigida a saída,
+                                priorizando segurança e convivência.</li>
+                        </ol>
+
+                        <h3>12) Segurança e pertences</h3>
+                        <p>Não deixe portas abertas nem compartilhe acessos com terceiros.</p>
+                        <p>O Katary não se responsabiliza por perda de pertences por descuido do hóspede.</p>
+
+                        <h3>13) Aceite e assinatura do hóspede</h3>
+                        <p>Ao reservar e entrar, o hóspede declara que leu, entendeu e aceita este manual,
+                            comprometendo-se a garantir o cumprimento por todos do seu grupo e visitantes.</p>
+                    </div>
+
+                    <div class="form-container">
+                        <form onsubmit="handleSubmit(event, 'Regras da casa aceitas.')">
+                            <div class="form-group">
+                                <label class="label">Nome completo</label>
+                                <input type="text" class="input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="label">Documento (tipo e número)</label>
+                                <input type="text" class="input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="label">Apartamento</label>
+                                <input type="text" class="input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="label">Data</label>
+                                <input type="date" class="input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="label">Assinatura (Digite seu nome)</label>
+                                <input type="text" class="input" required>
+                            </div>
+
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="check-pt" required>
+                                <label for="check-pt">Declaro que li e aceito o Manual de Convivência</label>
+                            </div>
+
+                            <button type="submit" class="btn">Enviar Aceite</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- FRANÇAIS -->
+                <div id="lang-fr" class="lang-content" style="display: none;">
+                    <div class="text-center" style="margin-bottom: 24px;">
+                        <h2>Règlement Intérieur</h2>
+                    </div>
+
+                    <div class="legal-content">
+                        <h3>Règlement intérieur pour les voyageurs</h3>
+                        <p><strong>Locations de courte durée – Immeuble Katary</strong></p>
+                        <p>Ce règlement s'applique à toute personne hébergée dans les appartements de location de courte
+                            durée de l'immeuble Katary, ainsi qu'aux visiteurs. Son acceptation est une condition de la
+                            réservation et de l'entrée dans l'immeuble.</p>
+
+                        <h3>1) Objectif</h3>
+                        <p>Assurer un séjour sûr, calme et respectueux pour les voyageurs, les voisins, le personnel de
+                            l'immeuble et les prestataires.</p>
+
+                        <h3>2) Enregistrement obligatoire à l'entrée (EXIGENCE INDISPENSABLE)</h3>
+                        <p>Pour la sécurité de tous et le respect des protocoles:</p>
+                        <ol>
+                            <li>Toute personne entrant dans l'immeuble doit s'enregistrer à la réception/porterie.</li>
+                            <li>Présentation obligatoire d'une pièce d'identité ORIGINALE en cours de validité (photos,
+                                copies ou captures d'écran non acceptées): carte d'identité, titre de séjour, passeport
+                                ou document valide selon le cas.</li>
+                            <li>Seront enregistrés: nom, numéro de document, date/heure d'entrée et de sortie,
+                                appartement visité.</li>
+                            <li>L'entrée des personnes non enregistrées est interdite.</li>
+                            <li>Sur demande, les voyageurs doivent fournir à l'avance la liste des occupants afin de
+                                faciliter l'arrivée; toutefois, la porterie exigera toujours le document original.</li>
+                        </ol>
+                        <p>Le non-respect peut entraîner un refus d'accès et/ou une amende (voir tableau des amendes).
+                        </p>
+
+                        <h3>3) Capacité, occupation et visiteurs</h3>
+                        <p>La capacité maximale indiquée dans l'annonce et la réservation doit être respectée.</p>
+                        <p>Les visiteurs ne sont autorisés que s'ils sont pré-enregistrés et s'enregistrent à l'entrée
+                            avec une pièce d'identité originale.</p>
+                        <p>Il est interdit de prêter clés, cartes ou accès à des tiers non autorisés.</p>
+
+                        <h3>4) Mineurs</h3>
+                        <p>L'entrée des mineurs n'est pas autorisée sans leurs parents ou représentant légal, qui
+                            doivent également s'enregistrer avec une pièce d'identité originale.</p>
+                        <p>Si une situation suggère une atteinte possible aux droits d'un mineur, les autorités
+                            compétentes seront immédiatement informées.</p>
+
+                        <h3>5) Tolérance zéro: exploitation sexuelle et traite</h3>
+                        <p>A Katary, nous nous opposons à la prostitution des mineurs et au tourisme sexuel.</p>
+                        <p>Tout acte lié à l'exploitation sexuelle de mineurs, à la traite des personnes ou à toute
+                            activité portant atteinte aux droits est strictement interdit. En cas de suspicion ou de
+                            preuve, le séjour pourra être interrompu et les autorités seront contactées, sans préjudice
+                            des frais et sanctions.</p>
+
+                        <h3>6) Bruit, fêtes et vie en communauté</h3>
+                        <p>Heures de calme: 20 h 00 à 08 h 00 (évitez musique forte, cris et coups; gardez un volume
+                            modéré en permanence).</p>
+                        <p>Les fêtes, événements et rassemblements générant des plaintes, un bruit excessif ou une
+                            entrée massive de personnes sont interdits.</p>
+                        <p>En cas de plaintes répétées ou d'intervention de la sécurité/gestion, des amendes seront
+                            appliquées.</p>
+
+                        <h3>7) Parties communes et règles de l'immeuble</h3>
+                        <p>Respectez ascenseurs, couloirs, hall d'accueil, parkings et toutes les parties communes.</p>
+                        <p>Ne laissez pas de déchets, mégots, bouteilles ou objets personnels dans les parties communes.
+                        </p>
+                        <p>Il est interdit de fumer dans les zones non autorisées et de manipuler les systèmes de
+                            sécurité (caméras, détecteurs, serrures, etc.).</p>
+
+                        <h3>8) Entretien de l'appartement</h3>
+                        <p>Le voyageur est responsable du bon usage du mobilier, des murs, du linge, des appareils et
+                            des équipements.</p>
+                        <p>Il est interdit de déplacer le mobilier d'une manière pouvant endommager sols/murs ou créer
+                            des risques.</p>
+                        <p>Les déchets doivent être mis en sac et déposés à l'endroit indiqué.</p>
+
+                        <h3>9) Interdictions principales</h3>
+                        <p>Il est interdit: d'entrer ou de faire entrer des personnes sans enregistrement et sans pièce
+                            d'identité originale; de dépasser la capacité; d'organiser des fêtes ou troubles; de
+                            consommer/vendre des substances illégales; de porter des armes ou objets dangereux; de
+                            causer des dommages; de participer à l'exploitation sexuelle, à la traite ou à des activités
+                            connexes.</p>
+
+                        <h3>10) Amendes et frais en cas de non-respect</h3>
+                        <p>Les amendes sont des frais contractuels pour non-respect et peuvent s'ajouter, le cas
+                            échéant, aux frais de dommages, de nettoyage spécial ou de remplacement. Elles peuvent être
+                            prélevées via: dépôt de garantie, procédure de la plateforme (Airbnb/Booking/OTA) ou
+                            paiement direct autorisé.</p>
+
+                        <h4>Tableau des amendes (montants en COP)</h4>
+                        <table>
+                            <tr>
+                                <th>Infraction</th>
+                                <th>Montant</th>
+                            </tr>
+                            <tr>
+                                <td>Entrée d'une personne non enregistrée sans pièce d'identité originale</td>
+                                <td>$400.000 par personne/incident</td>
+                            </tr>
+                            <tr>
+                                <td>Tentative de contourner les contrôles de la porterie ou partage d'accès</td>
+                                <td>$600.000</td>
+                            </tr>
+                            <tr>
+                                <td>Dépassement de la capacité maximale</td>
+                                <td>$600.000 + $200.000 par personne supplémentaire</td>
+                            </tr>
+                            <tr>
+                                <td>Bruit/plaintes vérifiés (première intervention)</td>
+                                <td>$300.000</td>
+                            </tr>
+                            <tr>
+                                <td>Récidive de bruit/fête/événement</td>
+                                <td>$1.200.000 et possible interruption immédiate du séjour sans remboursement</td>
+                            </tr>
+                            <tr>
+                                <td>Fumer là où c'est interdit / odeur persistante de fumée</td>
+                                <td>$450.000 + nettoyage spécial si applicable</td>
+                            </tr>
+                            <tr>
+                                <td>Animaux non autorisés ou non-respect des conditions de l'annonce</td>
+                                <td>$500.000 + nettoyage/dommages</td>
+                            </tr>
+                            <tr>
+                                <td>Dommages aux équipements, mobilier ou infrastructure</td>
+                                <td>Coût total de réparation/remplacement + $250.000 (si applicable)</td>
+                            </tr>
+                            <tr>
+                                <td>Manipulation/désactivation d'éléments de sécurité (serrures, alarmes, détecteurs)
+                                </td>
+                                <td>$1.500.000 + coûts techniques</td>
+                            </tr>
+                            <tr>
+                                <td>Activités illégales ou à haut risque (incluant exploitation sexuelle, traite, etc.)
+                                </td>
+                                <td>Interruption immédiate, signalement aux autorités et recouvrement des dommages
+                                    applicables</td>
+                            </tr>
+                        </table>
+                        <p><small>Remarque: si le dommage ou la perte dépasse le montant de l'amende, le montant total
+                                justifié sera facturé (facture, devis, rapport, photos, etc.).</small></p>
+
+                        <h3>11) Procédure d'application et de recouvrement des amendes</h3>
+                        <ol>
+                            <li>Vérification: signalement de la porterie/gestion, rapport, preuves (photo/audio/vidéo)
+                                ou témoignages.</li>
+                            <li>Notification au voyageur (message et/ou rapport): l'infraction, les preuves disponibles
+                                et le montant seront indiqués.</li>
+                            <li>Recouvrement: de préférence via le dépôt de garantie ou le centre de résolution de la
+                                plateforme. Si le dépôt est insuffisant, recouvrement via la plateforme ou paiement
+                                direct autorisé.</li>
+                            <li>Délai: paiement immédiat ou dans les 24 heures suivant la notification, sauf règles
+                                spécifiques de la plateforme.</li>
+                            <li>Fin du séjour: en cas de faute grave ou de récidive, un départ pourra être exigé, en
+                                priorité à la sécurité et à la tranquillité.</li>
+                        </ol>
+
+                        <h3>12) Sécurité et effets personnels</h3>
+                        <p>Ne laissez pas les portes ouvertes et ne partagez pas les accès avec des tiers.</p>
+                        <p>Katary n'est pas responsable de la perte d'effets personnels due à la négligence du voyageur.
+                        </p>
+
+                        <h3>13) Acceptation et signature du voyageur</h3>
+                        <p>En réservant et en entrant, le voyageur déclare avoir lu, compris et accepté ce règlement, et
+                            s'engage à le faire respecter par tous les membres de son groupe et ses visiteurs.</p>
+                    </div>
+
+                    <div class="form-container">
+                        <form onsubmit="handleSubmit(event, 'Règlement accepté.')">
+                            <div class="form-group">
+                                <label class="label">Nom complet</label>
+                                <input type="text" class="input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="label">Pièce d'identité (type et numéro)</label>
+                                <input type="text" class="input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="label">Appartement</label>
+                                <input type="text" class="input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="label">Date</label>
+                                <input type="date" class="input" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="label">Signature du voyageur</label>
+                                <input type="text" class="input" required>
+                            </div>
+
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="check-fr" required>
+                                <label for="check-fr">Je déclare avoir lu et accepté le Règlement Intérieur</label>
+                            </div>
+
+                            <button type="submit" class="btn">Envoyer</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Access Control
+        const urlParams = new URLSearchParams(window.location.search);
+        const accessCode = urlParams.get('access');
+
+        if (accessCode === 'katary2025') {
+            document.getElementById('content-wrapper').style.display = 'block';
+        } else {
+            document.getElementById('access-denied').style.display = 'flex';
+        }
+
+        // Language Switching
+        function changeLanguage(lang) {
+            // Hide all language contents
+            document.querySelectorAll('.lang-content').forEach(el => {
+                el.style.display = 'none';
+            });
+            // Show selected language content
+            document.getElementById('lang-' + lang).style.display = 'block';
+        }
+
+        // Form Submission Mock
+        function handleSubmit(event, message) {
+            event.preventDefault();
+            if (event.target.checkValidity()) {
+                alert(message);
+                event.target.reset();
+            } else {
+                // Trigger browser validation UI
+                event.target.reportValidity();
+            }
+        }
+    </script>
+</body>
+
+</html>
