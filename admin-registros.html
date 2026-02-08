@@ -223,6 +223,7 @@
                             <option value="" disabled selected>Seleccione una opción</option>
                             <option value="tra">TRA</option>
                             <option value="conducta">Código de Conducta</option>
+                            <option value="acompanantes">Acompañantes</option>
                         </select>
                     </div>
 
@@ -277,12 +278,23 @@
 
         function handleDownload(event) {
             event.preventDefault();
-            if (validateDates()) {
-                alert("Funcionalidad de descarga pendiente de implementar.\n(Placeholder)");
+
+            if (!validateDates()) return;
+
+            const fechaInicio = document.getElementById('start_date').value;
+            const fechaFin = document.getElementById('end_date').value;
+            const tipo = document.querySelector('select[name="report_type"]').value;
+
+            if (!tipo) {
+                alert("Selecciona un tipo de registro");
+                return;
             }
+
+            descargar(tipo, fechaInicio, fechaFin);
         }
     </script>
 
+<script src="js/downloads.js"></script>
 </body>
 
 </html>
