@@ -283,7 +283,7 @@
                             <p>Registro de huéspedes para Katary Renta Temporal.</p>
                         </div>
 
-                        <form id="form-es" onsubmit="handleSpanishSubmit(event)">
+                        <form id="form-es" onsubmit="handleTraSubmit(event)">
                             <h3>Datos del huésped principal</h3>
                             <div class="grid-2">
                                 <div class="form-group">
@@ -446,7 +446,7 @@
                             <p>Guest registration for Katary Short-Term Rentals.</p>
                         </div>
 
-                        <form id="form-en" onsubmit="handleEnglishSubmit(event)">
+                        <form id="form-en" onsubmit="handleTraSubmit(event)">
                             <h3>Main Guest Information</h3>
                             <div class="grid-2">
                                 <div class="form-group">
@@ -608,7 +608,7 @@
                             <p>Registro de hóspedes para Katary Renta Temporal.</p>
                         </div>
 
-                        <form id="form-pt" onsubmit="handlePortugueseSubmit(event)">
+                        <form id="form-pt" onsubmit="handleTraSubmit(event)">
                             <h3>Dados do hóspede principal</h3>
                             <div class="grid-2">
                                 <div class="form-group">
@@ -770,7 +770,7 @@
                             <p>Enregistrement des voyageurs pour Katary Location Courte Durée.</p>
                         </div>
 
-                        <form id="form-fr" onsubmit="handleFrenchSubmit(event)">
+                        <form id="form-fr" onsubmit="handleTraSubmit(event)">
                             <h3>Informations du voyageur principal</h3>
                             <div class="grid-2">
                                 <div class="form-group">
@@ -1153,167 +1153,91 @@
             });
         });
 
-        // Handle Spanish Form Submit
-        function handleSpanishSubmit(event) {
-            event.preventDefault();
-            const form = event.target;
 
-            const auth = form.querySelector('input[name="authorization"]:checked');
-            if (!auth || auth.value === 'no') {
-                alert('Debe autorizar el tratamiento de datos para continuar.');
-                return;
-            }
+        async function handleTraSubmit(event) {
+    event.preventDefault();
 
-            validateDates(form);
-            if (!form.checkValidity()) {
-                form.reportValidity();
-                return;
-            }
+    const form = event.target;
+    const formData = new FormData(form);
 
-            alert('Formulario TRA enviado correctamente (Formato Actualizado).');
+    // 🔹 Validación consentimiento
+    const auth = form.querySelector('input[name="authorization"]:checked');
+    if (!auth || auth.value === 'no') {
+        alert('Debe autorizar el tratamiento de datos.');
+        return;
+    }
+
+    validateDates(form);
+    if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+    }
+
+    // 🔹 Construir companions
+    const companions = [];
+    const numCompanions = parseInt(formData.get('numCompanions')) || 0;
+
+    for (let i = 1; i <= numCompanions; i++) {
+        companions.push({
+            tipo_id: formData.get(`companion_${i}_type`),
+            numero_id: formData.get(`companion_${i}_id`),
+            nombre_completo: formData.get(`companion_${i}_name`)
+        });
+    }
+
+    // 🔹 Payload EXACTO que espera tu backend
+    const payload = {
+        apartamento: formData.get('apartment'),
+        codigo_reserva: formData.get('bookingCode'),
+        tipo_id: formData.get('idType'),
+        numero_id: formData.get('idNumber'),
+        nombres: formData.get('firstName'),
+        apellidos: formData.get('lastName'),
+        ciudad_residencia: formData.get('cityResidence'),
+        ciudad_procedencia: formData.get('cityOrigin'),
+        telefono: formData.get('phone'),
+        email: formData.get('email'),
+        motivo_viaje: formData.get('tripPurpose'),
+        tipo_acomodacion: formData.get('accommodationType'),
+        numero_acompanantes: numCompanions,
+        fecha_llegada: formData.get('checkIn'),
+        fecha_salida: formData.get('checkOut'),
+        valor_pagado: parseFloat(formData.get('amountPaid')) || 0,
+        consentimiento: auth.value === 'yes',
+        firma: formData.get('guestSignature'),
+        companions: companions
+    };
+
+    try {
+        const response = await fetch('http://localhost:3000/api/tra', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            alert('Formulario enviado correctamente ✅');
             form.reset();
-            document.getElementById('companions-container').innerHTML = '';
-            document.getElementById('companions-section').style.display = 'none';
+
+            const container = form.querySelector('[id^="companions-container"]');
+            const section = form.querySelector('[id^="companions-section"]');
+
+            if (container) container.innerHTML = '';
+            if (section) section.style.display = 'none';
+
+        } else {
+            alert('Error: ' + (result.error || 'Error desconocido'));
         }
 
-        // Handle English Submit with JSON
-        async function handleEnglishSubmit(event) {
-            event.preventDefault();
-            const form = event.target;
-            const formData = new FormData(form);
+    } catch (error) {
+        console.error('Error de red:', error);
+        alert('Error de conexión con el servidor.');
+    }
+}
 
-            const auth = form.querySelector('input[name="authorization"]:checked');
-            if (!auth || auth.value === 'no') {
-                alert('You must authorize data processing to continue.');
-                return;
-            }
 
-            validateDates(form);
-            if (!form.checkValidity()) {
-                form.reportValidity();
-                return;
-            }
-
-            // Build JSON
-            const companions = [];
-            let numCompanions = parseInt(formData.get('numCompanions')) || 0;
-
-            for (let i = 1; i <= numCompanions; i++) {
-                companions.push({
-                    tipo_id: formData.get(`companion_${i}_type`),
-                    numero_id: formData.get(`companion_${i}_id`),
-                    nombre_completo: formData.get(`companion_${i}_name`)
-                });
-            }
-
-            const payload = {
-                apartamento: formData.get('apartment'),
-                codigo_reserva: formData.get('bookingCode'),
-                tipo_id: formData.get('idType'),
-                numero_id: formData.get('idNumber'),
-                nombres: formData.get('firstName'),
-                apellidos: formData.get('lastName'),
-                ciudad_residencia: formData.get('cityResidence'),
-                ciudad_procedencia: formData.get('cityOrigin'),
-                telefono: formData.get('phone'),
-                email: formData.get('email'),
-                motivo_viaje: formData.get('tripPurpose'),
-                tipo_acomodacion: formData.get('accommodationType'),
-                numero_acompanantes: numCompanions,
-                fecha_llegada: formData.get('checkIn'),
-                fecha_salida: formData.get('checkOut'),
-                valor_pagado: parseFloat(formData.get('amountPaid')),
-                consentimiento: auth.value === 'yes',
-                firma: formData.get('guestSignature'),
-                fecha_registro: formData.get('signatureDate'),
-                companions: companions
-            };
-
-            // Assuming /api/tra is the endpoint
-            try {
-                const response = await fetch('http://localhost:3000/api/tra', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                const result = await response.json();
-
-                if (response.ok) {
-                    alert('TRA Form submitted successfully!');
-                    form.reset();
-                    document.getElementById('companions-container_en').innerHTML = '';
-                    document.getElementById('companions-section_en').style.display = 'none';
-                } else {
-                    alert('Error submitting form: ' + (result.error || 'Unknown error'));
-                }
-            } catch (error) {
-                console.error('Submission failed', error);
-                alert('Network error. Please try again.');
-            }
-        }
-
-        // Handle Portuguese Submit
-        function handlePortugueseSubmit(event) {
-            event.preventDefault();
-            const form = event.target;
-
-            const auth = form.querySelector('input[name="authorization"]:checked');
-            if (!auth || auth.value === 'no') {
-                alert('Você deve autorizar o tratamento de dados para continuar.');
-                return;
-            }
-
-            validateDates(form);
-            if (!form.checkValidity()) {
-                form.reportValidity();
-                return;
-            }
-
-            alert('Formulário TRA enviado com sucesso (Formato Atualizado).');
-            form.reset();
-            document.getElementById('companions-container_pt').innerHTML = '';
-            document.getElementById('companions-section_pt').style.display = 'none';
-        }
-
-        // Handle French Submit
-        function handleFrenchSubmit(event) {
-            event.preventDefault();
-            const form = event.target;
-
-            const auth = form.querySelector('input[name="authorization"]:checked');
-            if (!auth || auth.value === 'no') {
-                alert("Vous devez autoriser le traitement des données pour continuer.");
-                return;
-            }
-
-            validateDates(form);
-            if (!form.checkValidity()) {
-                form.reportValidity();
-                return;
-            }
-
-            alert("Formulaire TRA envoyé avec succès (Format Mise à jour).");
-            form.reset();
-            document.getElementById('companions-container_fr').innerHTML = '';
-            document.getElementById('companions-section_fr').style.display = 'none';
-        }
-
-        // Handle Generic Submit (Other languages)
-        function handleSubmit(event, successMessage) {
-            event.preventDefault();
-            const form = event.target;
-
-            // Run validation one last time
-            validateDates(form);
-
-            if (form.checkValidity()) {
-                alert(successMessage);
-                form.reset();
-            } else {
-                form.reportValidity();
-            }
-        }
     </script>
 </body>
 
