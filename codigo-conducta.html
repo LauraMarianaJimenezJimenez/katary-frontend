@@ -1073,7 +1073,7 @@
                     };
 
                     try {
-                        const response = await fetch('http://localhost:3000/api/conducta', {
+                        const response = await fetch('/api/conducta', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(payload)
