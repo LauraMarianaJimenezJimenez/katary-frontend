@@ -11,7 +11,7 @@ function descargar(tipo, fechaInicio, fechaFin) {
     tipo: tipo
   });
 
-  const url = `http://localhost:3000/api/downloads?${params.toString()}`;
+  const url = `/api/downloads?fecha_inicio=${fechaInicio}&fecha_fin=${fechaFin}&tipo=${tipo}&access=katary2025`;
 
   fetch(url)
     .then(response => {
