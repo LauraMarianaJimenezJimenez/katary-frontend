@@ -184,6 +184,7 @@
             height: 20px;
             margin-top: 2px;
             accent-color: var(--accent);
+            flex-shrink: 0;
         }
 
         #access-denied {
@@ -442,6 +443,11 @@
                                 <label for="check-es">Declaro que he leído y acepto el Manual de Convivencia</label>
                             </div>
 
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="check-es" name="acepta_txs" required>
+                                <label for="check-es">Autorizo que, en caso de daños ocasionados durante mi estadia, los costos correspondientes pueden ser descontados de mi medio de pago registrado</label>
+                            </div>
+
                             <button type="submit" class="btn">Enviar Aceptación</button>
                         </form>
                     </div>
@@ -633,6 +639,11 @@
                                 <label for="check-en">I declare that I have read and accept the House Rules</label>
                             </div>
 
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="check-en" name="acepta_txs" required>
+                                <label for="check-en">I authorize that, in the event of damages caused during my stay, the corresponding costs may be charged to my registered payment method</label>
+                            </div>
+
                             <button type="submit" class="btn">Submit Acceptance</button>
                         </form>
                     </div>
@@ -821,6 +832,11 @@
                             <div class="checkbox-group">
                                 <input type="checkbox" id="check-pt" name="acepta_manual"  required>
                                 <label for="check-pt">Declaro que li e aceito o Manual de Convivência</label>
+                            </div>
+
+                             <div class="checkbox-group">
+                                <input type="checkbox" id="check-pt" name="acepta_txs"  required>
+                                <label for="check-pt">Autorizo que, em caso de danos ocasionados durante minha estadia, os custos correspondentes possam ser cobrados do meu meio de pagamento registrado.</label>
                             </div>
 
                             <button type="submit" class="btn">Enviar Aceite</button>
@@ -1019,6 +1035,11 @@
                             <div class="checkbox-group">
                                 <input type="checkbox" id="check-fr" name="acepta_manual" required>
                                 <label for="check-fr">Je déclare avoir lu et accepté le Règlement Intérieur</label>
+                            </div>
+
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="check-fr" name="acepta_manual" required>
+                                <label for="check-fr">J'autorise que, en cas de dommages causés pendant mon séjour, les coûts correspondants puissent être débités de mon moyen de paiement enregistré</label>
                             </div>
 
                             <button type="submit" class="btn">Envoyer</button>
